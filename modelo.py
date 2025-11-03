@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship, declarative_base
 
@@ -27,3 +28,21 @@ class Pacotes(Base):
     espaco_id = Column(Integer, ForeignKey('Espacos.id'))
     produto = relationship("Produtos", back_populates="pacotes")
     espaco = relationship("Espacos", back_populates="pacotes")
+=======
+from sqlalchemy.orm import sessionmaker
+from main import Aluno, Base
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
+import os
+load_dotenv()
+DATABASE_URL = os.getenv("DATABASE_URL")
+engine = create_engine(DATABASE_URL)
+Session = sessionmaker(bind=engine)
+session = Session()
+aluno1 = Aluno(nome="Lucas", idade=17)
+aluno2 = Aluno(nome="Amanda", idade=16)
+
+session.add_all([aluno1, aluno2])
+session.commit()
+print("Alunos inseridos com sucesso!")
+>>>>>>> 033394d278788563f9c0761dc1aa2a2912d8c117
