@@ -1,14 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from modelo import Base, Produtos, Espacos, Pacotes
+from models import Base, Produtos, Espacos, Pacotes
 import os
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
 # Banco de dados SQLite
-DATABASE_URL= os.path.join(os.path.dirname(__file__), "locaplay.db")
+DATABASE_URL = os.path.join(os.path.dirname(__file__), "locaplay.db")
 engine = create_engine(f"sqlite:///{DATABASE_URL}", echo=True)
 Base.metadata.create_all(engine)
 
