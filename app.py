@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import Base, Produtos, Espacos, Pacotes
+from modelo import Base, Produtos, Espacos, Pacotes
 import os
 
 app = Flask(__name__)
