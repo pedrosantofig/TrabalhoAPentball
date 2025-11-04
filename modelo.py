@@ -6,7 +6,7 @@ Base = declarative_base()
 class Produtos(Base):
     __tablename__ = 'Produtos'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    nome_produto = Column(String(100), nullable=False)
+    nome = Column(String(100), nullable=False)
     preco = Column(Float, nullable=False)
     pacotes = relationship("Pacotes", back_populates="produto")
 
