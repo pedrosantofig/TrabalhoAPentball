@@ -3,6 +3,17 @@ from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
 
+class Usuario(Base):
+    __tablename__ = 'usuario'
+    id = Column(Integer, primary_key=True)
+    nome = Column(String(100), nullable=False)
+    email = Column(String(100), nullable=False)
+    senha = Column(String(100), nullable=False)
+
+    def __repr__(self):
+        return f"<Produto(nome={self.nome}, preco={self.email})>"
+
+
 class Produtos(Base):
     __tablename__ = 'Produtos'
     id = Column(Integer, primary_key=True, autoincrement=True)
