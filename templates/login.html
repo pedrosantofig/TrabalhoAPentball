@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #004aad, #00b4d8);
+            background: linear-gradient(to right, #232526, #414345);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,7 +16,7 @@
         }
 
         .container {
-            background: white;
+            background: linear-gradient(to right, #232526, #414345);
             padding: 40px 50px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -25,7 +25,7 @@
         }
 
         h2 {
-            color: #004aad;
+            color: #4CAF50;
             margin-bottom: 20px;
         }
 
@@ -45,7 +45,7 @@
 
         button {
             width: 100%;
-            background-color: #004aad;
+            background-color: #4CAF50;
             color: white;
             border: none;
             padding: 12px;
@@ -55,14 +55,19 @@
             font-size: 16px;
         }
 
+        #googleLogin{
+            margin: 10px;
+
+        }
+
         button:hover {
-            background-color: #0077b6;
+            background-color: #00b603;
         }
 
         .link {
             margin-top: 15px;
             display: block;
-            color: #004aad;
+            color: #9acf9d;
             text-decoration: none;
         }
 
@@ -77,9 +82,30 @@
         <form action="/login" method="POST">
             <input type="email" name="email" placeholder="E-mail" required>
             <input type="password" name="senha" placeholder="Senha" required>
-            <button type="submit">Cadastrar</button>
+            <button type="submit" onclick="window.location.href='addServico.html'">Cadastrar</button>
         </form>
-        <a href="login.html" class="link">Já tem conta? Faça login</a>
+        <div id="googleLogin"></div>
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <a href="login" class="link">Já tem conta? Faça login | esqueceu a senha?</a>
+        <script>
+            function handleCredentialResponse(response) {
+              console.log("Token JWT recebido:", response.credential);
+              alert("Login com Google feito com sucesso!");
+              // Aqui você pode enviar o token pro backend (Flask) se quiser validar o login
+            }
+        
+            window.onload = function () {
+              google.accounts.id.initialize({
+                client_id: "SEU_CLIENT_ID_DO_GOOGLE", // coloque seu client ID aqui
+                callback: handleCredentialResponse
+              });
+        
+              google.accounts.id.renderButton(
+                document.getElementById("googleLogin"),
+                { theme: "outline", size: "large", text: "signin_with" }
+              );
+            };
+          </script>
     </div>
 </body>
 </html>

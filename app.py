@@ -4,56 +4,66 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from modelo import Base, Produtos, Espacos, Pacotes, Usuario
 import os
 from dotenv import load_dotenv
-import os
-from modelo import Base
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
-# Banco de dados SQLite
+# Banco de dados SQL
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 engine = create_engine(DATABASE_URL, echo=True)
 print('criando tabela')
 Base.metadata.create_all(engine)
 print('tabela adicionada')
-
+Session = sessionmaker(bind=engine)
+session = Session()
 # -------------------- ROTAS --------------------
 
-@app.route('/')
+@app.route('/index.html')
 def index():
     return render_template('index.html')
 @app.route('/produtos')
-def index():
+def prduto():
     return render_template('produtos.html')
 @app.route('/espaco')
-def index():
+def espaco():
     return render_template('espaco.html')
 @app.route('/pacote')
-def index():
+def pacote():
     return render_template('pacote.html')
+@app.route('/addServico')
+def addServico():
+    return render_template('addServico.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form['email']
         senha = request.form['senha']
-        Usuario = session.query(Usuario).filter_by(email=email, senha=senha).first()
+        usuario = session.query(Usuario).filter_by(email=email, senha=senha).first()
         if senha == "123":
             return redirect(url_for('cadastro'))
         else:
             flash("Usuário ou senha inválidos!", "error")
     return render_template('login.html')
-@app.route('/cadastrar', methods=['POST'])
-def cadastrar():
-    nome = request.form['nome']
-    email = request.form['email']
-    senha = request.form['senha']
 
-    novo_usuario = Usuario(nome=nome, email=email, senha=senha)
-    session.add(novo_usuario)
-    session.commit()
-    # Aqui você pode salvar no banco de dados
-    return f"Usuário {nome} cadastrado com sucesso!"
+@app.route('/cadastrar', methods=['GET', 'POST'])
+def cadastrar():
+    session = Session()
+    if request.method == 'POST':
+        nome = request.form['nome']
+        email = request.form['email']
+        senha = request.form['senha']
+
+        novo_usuario = Usuario(nome=nome, email=email, senha=senha)
+        session.add(novo_usuario)
+        session.commit()
+
+        # Redireciona ou mostra uma mensagem de sucesso
+        return render_template('cadastrarUser.html', mensagem='Usuário cadastrado com sucesso!')
+
+    # Se for GET, só exibe o HTML do formulário
+    return render_template('cadastrarUser.html')
+
 
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastroProdutos():
@@ -63,7 +73,7 @@ def cadastroProdutos():
     return render_template('cadastro.html', produtos=produtos, espacos=espacos, pacotes=pacotes)
 
 # Rotas CRUD de Produtos
-@app.route('/produto/add', methods=['POST'])
+@app.route('/produto/add', methods=['GET','POST'])
 def add_produto():
     nome = request.form['nome_produto']
     preco = float(request.form['preco'])
