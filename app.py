@@ -18,7 +18,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 # -------------------- ROTAS --------------------
 
-@app.route('/index.html')
+@app.route('/index')
 def index():
     return render_template('index.html')
 @app.route('/produtos')
@@ -33,6 +33,18 @@ def pacote():
 @app.route('/addServico')
 def addServico():
     return render_template('addServico.html')
+@app.route('/consultar')
+def consultar():
+    return render_template('consultar.html')
+@app.route('/consultar')
+def consultar():
+    return render_template('consultar.html')
+@app.route('/agendar')
+def consultar():
+    return render_template('agendar.html')
+@app.route('/agendamentos')
+def consultar():
+    return render_template('agendamentos.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
