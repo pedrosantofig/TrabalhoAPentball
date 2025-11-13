@@ -22,12 +22,11 @@
     <div class="logo">Paintball Zone</div>
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="servicos.html">Serviços</a></li>
-        <li><a href="sobre.html">Sobre Nós</a></li>
-        <li><a href="contato.html">Contato</a></li>
-        <li><a href="login.html" class="active">Login</a></li>
-        <li><a href="cadastro.html">Cadastre-se</a></li>
+        <li><a href="index">Início</a></li>
+        <li><a href="servicos">Serviços</a></li>
+        <li><a href="sobre">Sobre Nós</a></li>
+        <li><a href="login" class="active">Login</a></li>
+        <li><a href="cadastrar">Cadastre-se</a></li>
       </ul>
     </nav>
   </header>
@@ -38,13 +37,18 @@
       <h2>Login</h2>
 
       <!-- Campo de email -->
-      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="email" id="email" name="email" placeholder="E-mail" required>
 
+      
+      
       <!-- Campo de senha -->
-      <input type="password" name="senha" placeholder="Senha" required>
+      <input type="password" id="senha" name="senha" placeholder="Senha" required>
 
       <!-- Botão de envio -->
-      <button type="submit">Entrar</button>
+      <button type="button" onclick="login()">Entrar</button>
+
+      <p id="erro" class="error"></p>
+
 
       <!-- 🔹 Div onde o Google vai renderizar o botão -->
       <div id="googleLogin" style="margin-top: 20px;"></div>
@@ -87,6 +91,25 @@
   body: JSON.stringify({ token: response.credential })
 });
 
+  </script>
+  <!--logar como admin-->
+  <script>
+   function login() {
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+    const erro = document.getElementById('erro');
+
+    // Email e senha específicos
+    const emailCorreto = "admin@gmail.com";
+    const senhaCorreta = "123456";
+
+    if(email === emailCorreto && senha === senhaCorreta){
+      // Redireciona para outra página
+      window.location.href = "agendamentos";
+    } else {
+      erro.textContent = "Email ou senha incorretos!";
+    }
+  }
   </script>
 </body>
 </html>

@@ -3,97 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adicionar Serviço</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #232526, #414345);
-      color: white;
-      text-align: center;
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    h1 {
-      margin-bottom: 20px;
-    }
-
-    form {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 25px;
-      border-radius: 15px;
-      width: 320px;
-      box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-    }
-
-    label {
-      display: block;
-      text-align: left;
-      margin: 10px 0 5px 10px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 90%;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      outline: none;
-    }
-
-    button {
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 12px 25px;
-      margin: 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #45a049;
-      transform: scale(1.05);
-    }
-
-    .voltar {
-      background-color: #555;
-    }
-
-    .voltar:hover {
-      background-color: #444;
-    }
-  </style>
+  <title>Serviços - Paintball Zone</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1>Adicionar Novo Serviço</h1>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">Paintball Zone</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index">Início</a></li>
+        <li><a href="servicos" class="active">Serviços</a></li>
+        <li><a href="sobre">Sobre Nós</a></li>
+        <li><a href="agendar">Agendar</a></li>
+        <li><a href="login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <form action="#" method="post">
-    <label for="nome">Nome do Serviço:</label>
-    <input type="text" id="nome" name="nome" placeholder="Ex: Partida de Paintball" required>
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="servicos" style="margin-top: 90px;">
+    <h2>Serviços Disponíveis para Locação</h2>
 
-    <label for="espaco">Espaço:</label>
-    <input type="text" id="espaco" name="espaco" placeholder="Ex: Campo 1, Arena X" required>
+    <!-- ========================== -->
+    <!-- SEÇÃO: EQUIPAMENTOS -->
+    <!-- ========================== -->
+    <section class="secao-servicos">
+      <h3 class="titulo-secao">Equipamentos</h3>
+      <div class="servicos-container">
+        <div class="card">
+          <iframe title="Capa De Colete Protection X Five Modular FB6000" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/9e73eed6a2d84b879c74c7ed7a3e667a/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/capa-de-colete-protection-x-five-modular-fb6000-9e73eed6a2d84b879c74c7ed7a3e667a?utm_medium=embed&utm_campaign=share-popup&utm_content=9e73eed6a2d84b879c74c7ed7a3e667a"></a>
+          <h3>colete</h3>
+          <p> colete a prova de balas</p>
+          <p><strong>R$ 50,00 / hora</strong></p>
+        </div>
 
-    <label for="tempo">Tempo (minutos):</label>
-    <input type="number" id="tempo" name="tempo" placeholder="Ex: 60" required>
+        <div class="card">
+          <iframe title="Paintball Mask" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/31da25b50fb44f27bf6e56513688a4f3/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/paintball-mask-31da25b50fb44f27bf6e56513688a4f3?utm_medium=embed&utm_campaign=share-popup&utm_content=31da25b50fb44f27bf6e56513688a4f3" ></a>
+          <h3>Máscara Profissional</h3>
+          <p>Alta resistência e conforto para longa duração.</p>
+          <p><strong>R$ 20,00 / hora</strong></p>
+        </div>
+      </div>
+    </section>
 
-    <label for="preco">Preço (R$):</label>
-    <input type="number" step="0.01" id="preco" name="preco" placeholder="Ex: 150.00" required>
+    <!-- ========================== -->
+    <!-- SEÇÃO: ESPAÇOS -->
+    <!-- ========================== -->
+    <section class="secao-servicos">
+      <h3 class="titulo-secao">Espaços</h3>
+      <div class="servicos-container">
+        <div class="card">
+          <iframe title="Jämsän paintball kaupunki" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/bab9733aa6774790940bd12077b97f6c/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/jamsan-paintball-kaupunki-bab9733aa6774790940bd12077b97f6c?utm_medium=embed&utm_campaign=share-popup&utm_content=bab9733aa6774790940bd12077b97f6c"></a>
+          <h3>Campo Floresta Urbana</h3>
+          <p>Ambiente com obstáculos e cobertura parcial, ideal para partidas intensas.</p>
+          <p><strong>R$ 120,00 / hora</strong></p>
+        </div>
 
-    <label for="equipamentos">Equipamentos:</label>
-    <input type="text" id="equipamentos" name="equipamentos" placeholder="Ex: Marcador, máscara, colete" required>
+        <div class="card">
+           <iframe title="Xtreme Paintball" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/768e9fcf43a946688fd8c13082449c2e/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/xtreme-paintball-768e9fcf43a946688fd8c13082449c2e?utm_medium=embed&utm_campaign=share-popup&utm_content=768e9fcf43a946688fd8c13082449c2e" ></a>
+          <h3>Campo Arena Pro</h3>
+          <p>Campo profissional com obstáculos infláveis.</p>
+          <p><strong>R$ 150,00 / hora</strong></p>
+        </div>
+      </div>
+    </section>
 
-    <button type="submit">Salvar Serviço</button>
-  </form>
+    <!-- ========================== -->
+    <!-- SEÇÃO: ARMAS -->
+    <!-- ========================== -->
+    <section class="secao-servicos">
+      <h3 class="titulo-secao">Armas</h3>
+      <div class="servicos-container">
+        <div class="card">
+          <iframe title="Paintball Gun" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/9b88027052cd41c4ae6e62bbe6f0d648/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/paintball-gun-9b88027052cd41c4ae6e62bbe6f0d648?utm_medium=embed&utm_campaign=share-popup&utm_content=9b88027052cd41c4ae6e62bbe6f0d648"></a>
+          <h3>Arma</h3>
+          <p>Alta precisão e potência para confrontos intensos.</p>
+          <p><strong>R$ 80,00 / hora</strong></p>
+        </div>
 
-  <button class="voltar" onclick="window.location.href='index.html'">Voltar</button>
+        <div class="card">
+         <iframe title="Paintball Gun" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/28ff823991ff42ff957915eee14ab0ed/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/paintball-gun-28ff823991ff42ff957915eee14ab0ed?utm_medium=embed&utm_campaign=share-popup&utm_content=28ff823991ff42ff957915eee14ab0ed" target="_blank" rel="nofollow"></a>
+          <h3>Arma Elite X7</h3>
+          <p>Modelo leve com disparos automáticos e excelente precisão.</p>
+          <p><strong>R$ 100,00 / hora</strong></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>&copy; 2025 Paintball Zone. Todos os direitos reservados.</p>
+    <div class="social">
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-whatsapp"></i>
+    </div>
+  </footer>
 </body>
 </html>

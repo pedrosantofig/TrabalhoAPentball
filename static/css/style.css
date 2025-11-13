@@ -150,6 +150,7 @@ body {
 .mapa {
     text-align: center;
     padding: 60px 0;
+    height: 90%;
 }
 
 .mapa h2 {
@@ -315,7 +316,7 @@ footer p {
     backdrop-filter: blur(10px);
     padding: 30px;
     border-radius: 15px;
-    width: 80%;
+    width: 100%;
     max-width: 900px;
     text-align: center;
     color: white;
@@ -349,4 +350,234 @@ footer p {
   .tabela-agendamentos tr:hover {
     background: rgba(0, 255, 0, 0.1);
   }
-      
+/* ==========================
+   PÁGINA DE SERVIÇOS
+   ========================== */
+
+/* Container geral da página de serviços */
+
+.servicos {
+    padding: 100px 40px;
+    text-align: center;
+    min-height: 100vh;
+    color: white;
+  }
+  
+  /* Título principal */
+  .servicos h2 {
+    font-size: 2.8em;
+    color: #00ff66;
+    text-shadow: 0 0 10px #00ff66;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+  }
+  
+  /* Cada seção (equipamentos, espaços, armas) */
+  .secao-servicos {
+    margin-bottom: 80px;
+  }
+  
+  /* Título das seções */
+  .titulo-secao {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #00ff66;
+    text-shadow: 0 0 8px #00ff66;
+    border-bottom: 2px solid #00ff66;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  /* Container dos cards */
+  .servicos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  /* Card individual */
+  .card {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    width: 280px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
+  }
+  
+  /* Imagem dos cards */
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  /* Título e texto dos cards */
+  .card h3 {
+    color: #00ff66;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 0.95em;
+    margin-bottom: 10px;
+  }
+  
+  /* Preço */
+  .card strong {
+    color: #00ff66;
+    font-size: 1.1em;
+    text-shadow: 0 0 6px #00ff66;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .servicos h2 {
+      font-size: 2em;
+    }
+  
+    .titulo-secao {
+      font-size: 1.5em;
+    }
+  
+    .card {
+      width: 90%;
+    }
+  }
+  /* ==== RODAPÉ ==== */
+.footer {
+    background-color: #0b0c10;
+    color: #fff;
+    padding: 60px 10%;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #222;
+    padding-bottom: 40px;
+  }
+  
+  .footer-col {
+    flex: 1 1 200px;
+    margin: 10px 20px;
+  }
+  
+  .footer-col h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #00ff66;
+    text-transform: uppercase;
+  }
+  
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-col ul li {
+    margin: 8px 0;
+  }
+  
+  .footer-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .footer-col ul li a:hover {
+    color: #fff;
+  }
+  
+  /* Newsletter */
+  .newsletter form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .newsletter input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .newsletter button {
+    padding: 10px;
+    background-color: #00ff66;
+    border: none;
+    color: #0b0c10;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .newsletter button:hover {
+    background-color: #00ff66;
+  }
+  
+  /* Parte inferior */
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .footer-bottom p {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .social-icons i {
+    font-size: 22px;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .social-icons i:hover {
+    color: #00ff66;
+  }
+  /* ===== ESTILO DOS IFRAMES ===== */
+iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito hover (passar o mouse em cima) */
+iframe:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  iframe {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  iframe {
+    height: 180px;
+  }
+}

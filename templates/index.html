@@ -13,31 +13,31 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- 🔫 NAVBAR -->
+    <!--NAVBAR -->
     <header class="navbar">
         <div class="logo">Paintball Zone</div>
         <nav>
             <ul class="nav-links">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="servicos.html">Serviços</a></li>
-                <li><a href="sobre.html">Sobre Nós</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="index">Início</a></li>
+                <li><a href="servicos">Serviços</a></li>
+                <li><a href="#sobrenos">Sobre Nós</a></li>
+                <li><a href="agendar" class="active">Agendar</a></li>
                 <li><a href="login">Login</a></li>
-                <li><a href="cadastro.html">Cadastre-se</a></li>
+                
             </ul>
         </nav>
     </header>
 
-    <!-- 🏞️ BANNER PRINCIPAL -->
+    <!-- BANNER PRINCIPAL -->
     <section class="banner">
         <div class="banner-content">
             <h1>Adrenalina e Diversão em Cada Disparo!</h1>
             <p>Viva a experiência completa de Paintball com segurança, estratégia e muita emoção!</p>
-            <a href="servicos.html" class="btn-banner">Conheça Nossos Serviços</a>
+            <a href="servicos" class="btn-banner">Conheça Nossos Serviços</a>
         </div>
     </section>
 
-    <!-- 💥 SEÇÃO DE SERVIÇOS -->
+    <!--SEÇÃO DE SERVIÇOS -->
     <section class="servicos">
         <h2>Nossos Serviços</h2>
         <div class="servicos-container">
@@ -59,7 +59,7 @@
         </div>
     </section>
 
-    <!-- 🗺️ MAPA -->
+    <!-- MAPA -->
     <section class="mapa">
         <h2>Onde Estamos</h2>
         <iframe 
@@ -67,14 +67,54 @@
             width="100%" height="400" style="border:0;" allowfullscreen loading="lazy"></iframe>
     </section>
 
-    <!-- 🧩 RODAPÉ -->
-    <footer>
-        <p>© 2025 Paintball Zone — Todos os direitos reservados.</p>
-        <div class="social">
+ 
+     <!-- RODAPÉ -->
+     <footer class="footer">
+        <div class="footer-top">
+          <div class="footer-col">
+            <h3>Sobre Nós</h3>
+            <ul>
+              <li><a id ="sobrenos" href="sobre">Quem Somos</a></li>
+              <li><a href="servicos">Nossos Serviços</a></li>
+              <li><a href="agendar">Agende seu Jogo</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-col">
+            <h3>Contato</h3>
+            <ul>
+              <li><a href="mailto:contato@paintballzone.com">contato@paintballzone.com</a></li>
+              <li><a href="#">+55 (11) 99999-9999</a></li>
+              <li><a href="#">Osasco - SP</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-col">
+            <h3>Serviços</h3>
+            <ul>
+              <li><a href="#">Locação de Equipamentos</a></li>
+              <li><a href="#">Campos de Batalha</a></li>
+              <li><a href="#">Eventos e Equipes</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-col newsletter">
+            <h3>Receba Nossas Novidades</h3>
+            <form>
+              <input type="email" placeholder="Seu e-mail" required>
+              <button type="submit">Inscrever-se</button>
+            </form>
+          </div>
+        </div>
+  
+        <div class="footer-bottom">
+          <div class="social-icons">
             <i class="fab fa-instagram"></i>
             <i class="fab fa-facebook"></i>
             <i class="fab fa-youtube"></i>
+          </div>
+          <p>© 2025 Paintball Zone — Todos os direitos reservados.</p>
         </div>
-    </footer>
+      </footer>
 </body>
 </html>

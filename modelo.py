@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, Date, Time
 from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
@@ -34,3 +34,13 @@ class Pacotes(Base):
     espaco_id = Column(Integer, ForeignKey('Espacos.id'))
     produto = relationship("Produtos", back_populates="pacotes")
     espaco = relationship("Espacos", back_populates="pacotes")
+
+class Agendamento(Base):
+    __tablename__ = 'agendamentos'
+
+    id = Column(Integer, primary_key=True)
+    nome = Column(String(100), nullable=False)
+    data = Column(Date, nullable=False)
+    hora = Column(Time, nullable=False)
+    servico = Column(String(100), nullable=False)
+    jogadores = Column(Integer, nullable=False)
