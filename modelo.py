@@ -40,7 +40,7 @@ class Agendamento(Base):
 
     id = Column(Integer, primary_key=True)
     nome = Column(String(100), nullable=False)
-    data = Column(Date, nullable=False)
-    hora = Column(Time, nullable=False)
+    data = Column(Date, nullable=False)  
+    hora = Column(Time, nullable=False)  
     servico = Column(String(100), nullable=False)
     jogadores = Column(Integer, nullable=False)

@@ -20,8 +20,7 @@
       <ul class="nav-links">
         <li><a href="index">Início</a></li>
         <li><a href="servicos">Serviços</a></li>
-        <li><a href="sobre">Sobre Nós</a></li>
-        <li><a href="contato">Contato</a></li>
+        <li><a href="sobre#sobrenos">Sobre Nós</a></li>
         <li><a href="agendar" class="active">Agendar</a></li>
         <li><a href="agendamentos">Meus Agendamentos</a></li>
       </ul>
@@ -37,7 +36,7 @@
       <input type="text" name="nome" placeholder="Seu nome" required>
 
       <!-- Data -->
-      <input type="date" name="data" required>
+      <input id="data" type="date" name="data" required>
 
       <!-- Horário -->
       <input type="time" name="hora" required>
@@ -53,9 +52,29 @@
       <!-- Quantidade de jogadores -->
       <input type="number" name="jogadores" placeholder="Número de jogadores" min="1" required>
 
+      <p id="erro" class="error"></p>
       <!-- Botão -->
-      <button type="submit">Confirmar Agendamento</button>
+      <button type="submit" onclick="limitarData()">Confirmar Agendamento</button>
     </form>
   </section>
+  <script>
+    const data = document.getElementById("data").value;
+    const erro = document.getElementById('erro');
+    const dataAtual = new Date();
+
+   
+    function limitarData() {
+
+    if(data >= dataAtual){
+      // Redireciona para outra página
+      window.location.href = "agendamentos";
+    } else {
+      erro.textContent = " data não existe";
+    }
+  }
+
+    
+  
+  </script>
 </body>
 </html>
