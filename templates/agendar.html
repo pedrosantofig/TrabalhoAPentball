@@ -54,7 +54,7 @@
 
       <p id="erro" class="error"></p>
       <!-- Botão -->
-      <button type="submit" onclick="limitarData()">Confirmar Agendamento</button>
+      <button onclick="limitarData()">Confirmar Agendamento</button>
     </form>
   </section>
   <script>
@@ -63,15 +63,32 @@
     const dataAtual = new Date();
 
    
-    function limitarData() {
 
-    if(data >= dataAtual){
-      // Redireciona para outra página
-      window.location.href = "agendamentos";
-    } else {
-      erro.textContent = " data não existe";
-    }
+function limitarData() {
+  const dataInput = document.getElementById("data").value;
+  const erro = document.getElementById("erro");
+  const dataAtual = new Date();
+
+  // Se não tiver data preenchida
+  if (!dataInput) {
+    erro.textContent = "Preencha uma data.";
+    return;
   }
+
+  // Converter string "YYYY-MM-DD" para Date
+  const dataSelecionada = new Date(dataInput + "T00:00:00");
+
+  // Remover horas da data atual para comparação correta
+  const hoje = new Date();
+  hoje.setHours(0, 0, 0, 0);
+
+  if (dataSelecionada >= hoje) {
+    window.location.href = "agendamentos";
+  } else {
+    erro.textContent = "A data não pode ser anterior a hoje.";
+  }
+}
+</script>
 
     
   

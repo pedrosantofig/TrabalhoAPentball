@@ -4,6 +4,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from modelo import Agendamento, Base, Produtos, Espacos, Pacotes, Usuario
 import os
 from dotenv import load_dotenv
+
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
@@ -84,14 +85,20 @@ def deletar_agendamento(id):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    session = Session()
     if request.method == 'POST':
         email = request.form['email']
         senha = request.form['senha']
+
         usuario = session.query(Usuario).filter_by(email=email, senha=senha).first()
-        if senha == "123":
-            return redirect(url_for('cadastro'))
-        else:
-            flash("Usuário ou senha inválidos!", "error")
+
+        if usuario:
+            session['usuario_id'] = usuario.id
+            session['usuario_nome'] = usuario.nome
+            return redirect('/index')   # OU /index se quiser
+
+        return render_template('login.html', mensagem='E-mail ou senha incorretos!')
+
     return render_template('login.html')
 
 @app.route('/cadastrar', methods=['GET', 'POST'])
@@ -101,6 +108,14 @@ def cadastrar():
         nome = request.form['nome']
         email = request.form['email']
         senha = request.form['senha']
+        confirmar = request.form['confirmar']
+
+        if senha != confirmar:
+            return render_template("cadastrarUser.html", mensagem="Senhas não conferem!")
+
+        existe = session.query(Usuario).filter_by(email=email).first()
+        if existe:
+            return render_template("cadastrarUser.html", mensagem="E-mail já cadastrado!")
 
         novo_usuario = Usuario(nome=nome, email=email, senha=senha)
         session.add(novo_usuario)
@@ -112,13 +127,11 @@ def cadastrar():
     # Se for GET, só exibe o HTML do formulário
     return render_template('cadastrarUser.html')
 
-
-@app.route('/cadastro', methods=['GET', 'POST'])
-def cadastroProdutos():
-    produtos = session.query(Produtos).all()
-    espacos = session.query(Espacos).all()
-    pacotes = session.query(Pacotes).all()
-    return render_template('cadastro.html', produtos=produtos, espacos=espacos, pacotes=pacotes)
+@app.route('/usuarios')
+def usuarios():
+    session = Session()
+    usuarios = session.query(Usuario).all()
+    return render_template('usuarios.html', usuarios=usuarios)
 
 # Rotas CRUD de Produtos
 @app.route('/produto/add', methods=['GET','POST'])
@@ -155,6 +168,7 @@ def add_pacote():
     session.commit()
     flash("Pacote adicionado!", "success")
     return redirect(url_for('cadastro'))
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
